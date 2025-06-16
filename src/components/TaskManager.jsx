@@ -72,7 +72,7 @@ const TaskManager = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-      <h2 className="text-2xl font-bold mb-6">Task Manager</h2>
+      <h2 className="text-2xl font-bold mb-6">Task List</h2>
 
       {/* Task input form */}
       <form onSubmit={handleSubmit} className="mb-6">
@@ -81,7 +81,7 @@ const TaskManager = () => {
             type="text"
             value={newTaskText}
             onChange={(e) => setNewTaskText(e.target.value)}
-            placeholder="Add a new task..."
+            placeholder="Enter a new task..."
             className="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
           />
           <Button type="submit" variant="primary">
@@ -97,21 +97,21 @@ const TaskManager = () => {
           size="sm"
           onClick={() => setFilter('all')}
         >
-          All
+          All Tasks
         </Button>
         <Button
           variant={filter === 'active' ? 'primary' : 'secondary'}
           size="sm"
           onClick={() => setFilter('active')}
         >
-          Active
+          Active Tasks
         </Button>
         <Button
           variant={filter === 'completed' ? 'primary' : 'secondary'}
           size="sm"
           onClick={() => setFilter('completed')}
         >
-          Completed
+          Completed Tasks
         </Button>
       </div>
 
@@ -119,7 +119,7 @@ const TaskManager = () => {
       <ul className="space-y-2">
         {filteredTasks.length === 0 ? (
           <li className="text-gray-500 dark:text-gray-400 text-center py-4">
-            No tasks found
+            No tasks available
           </li>
         ) : (
           filteredTasks.map((task) => (
@@ -148,7 +148,7 @@ const TaskManager = () => {
                 onClick={() => deleteTask(task.id)}
                 aria-label="Delete task"
               >
-                Delete
+                Remove
               </Button>
             </li>
           ))
